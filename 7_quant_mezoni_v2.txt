@@ -1,0 +1,63 @@
+7_quant_mezoni_v2 - finalni Qiskit QCBM MMD 25q / mezonski ciklus
+========================================================================
+
+KORAK 1: Weierstrass lex-kriva nad svim do sad izvucenim kombinacijama
+
+  CSV izvucenih:        /data/loto7_4624_k43.csv
+  Ucitano izvlacenja:   4624
+  C(39,7):              15,380,937
+  Zadnji lex seed:      513,114
+  f(t) = lex-indeks izvucene kombinacije u skupu svih 39C7
+
+KORAK 2: Stvarni kvantni model v2
+
+  Model:                QCBM / parametrizovano kvantno kolo
+  Loss:                 MMD(lex distribucija) + 0.15*MSE(bit-marginale)
+  Recency:              exponential weights nad svih 4624 tacaka
+  Qubita:               25 = 5 blokova x 5
+  Layers:               4
+  Parametara:           312
+  Conditional seed:     zadnji lex-indeks enkodovan X-gateovima
+  Entanglement:          CRY unutar blokova + CZ izmedju blokova
+  Mezonski ciklus:       A-B-C-D-E-D-C-B-A CRY petlja kroz 5 blokova
+  SPSA iteracija:        80
+  train shots:           4096
+  final shots:           100000
+  initial loss:          0.05332714
+  final loss:            0.02140850
+  final MMD:             0.00480872
+  final bit MSE:         0.11066516
+
+Filter finalnih kandidata:
+  out-of-range shots:    2856
+  placeholder shots:     0
+  vec izvuceni shots:    0
+
+PREDIKCIJA 2: NEXT / 7_quant_mezoni_v2
+========================================================================
+
+Glavna kvantna prognoza:
+  sampled count:         72
+  sampled prob:          0.00072000
+  pred. lex:             15,143,298
+  pred. kombinacija:     (17, x, 20, y, 28, z, 38)
+  vec izvucena ranije:   NE (filtrirano)
+
+Top kvantni kandidati (novi, bez placeholder-a):
+  rang    count        prob           lex  kombinacija                   
+  1          72  0.00072000    15,143,298  (17, x, 20, y, 28, z, 38)  
+  2          70  0.00070000    13,046,150  (9, x, 25, y, 27, z, 35)   
+  3          63  0.00063000    13,046,146  (9, x, 25, y, 27, z, 31)   
+  4          63  0.00063000    10,948,994  (6, x, 18, y, 30, z, 39)   
+  5          60  0.00060000    13,046,148  (9, x, 25, y, 27, z, 33)   
+  6          55  0.00055000     2,560,386  (1, x, 18, y, 24, z, 38)   
+  7          54  0.00054000    15,143,302  (17, x, 20, y, 28, z, 34)  
+  8          51  0.00051000       463,234  (1, x, 4, y, 19, z, 27)     
+  9          51  0.00051000    13,046,152  (9, x, 25, y, 27, z, 37)   
+  10         51  0.00051000    15,139,202  (17, x, 19, y, 31, z, 38)  
+  11         46  0.00046000     2,560,390  (1, x, 18, y, 24, z, 38)   
+  12         46  0.00046000    13,042,050  (9, x, 22, y, 28, z, 36)   
+
+Vreme treninga:       0:07:43 (462.6 s)
+Ukupno vreme:         0:07:46 (465.7 s)
+PNG:                  /7_quant_mezoni_v2.png
