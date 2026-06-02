@@ -823,8 +823,4 @@ v2 dodaje u odnosu na v1:
   - exponential recency weight nad celom krivom
   - filter placeholder-a i vec izvucenih kombinacija
   - finalno semplovanje sa 100000 shots
-
-Output:
-  7_quant_mezoni_v2.txt
-  7_quant_mezoni_v2.png
 """
